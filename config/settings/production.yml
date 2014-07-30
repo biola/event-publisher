@@ -1,0 +1,3 @@
+elasticsearch:
+  host: http://elastic1a.prod.biola.edu:9200
+  index_name: directory

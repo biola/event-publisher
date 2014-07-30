@@ -1,0 +1,39 @@
+app:
+  name: Event Publisher
+  scheme: https
+  host: wcms.biola.edu
+  relative_url_root: /events
+  full_url: http://wcms.biola.edu/events
+
+# Overwrite this in production
+secret_token: '79da1e9b279e44da09019a4d540abf2ec5242212d6f73b81e6faa416b71c15443ab01b5c9f14335617d957ee0fe5c1549cea30797dc24576a6ec42e5e618275a'
+
+urn_namespaces:
+- "urn:biola:apps:event-publisher:"
+- "urn:biola:apps:all:"
+
+cas:
+  url: "https://login.biola.edu/cas"
+
+email:
+  enabled: true
+  from: no-reply@biola.edu
+  developer: appdev@biola.edu
+  smtp:
+    server: postfix.biola.edu
+
+exceptions:
+  mail_to:
+  - appdev@biola.edu
+
+# elasticsearch:
+#   host:  # set in environment settings, leave nil for development
+#   index_name:
+
+trogdir:
+  scheme: 'https'
+  host: 'trogdir-api.dev'
+  script_name:
+  version: 'v1'
+  access_id: '*********************'
+  secret_key: '***************************************'

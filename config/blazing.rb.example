@@ -1,0 +1,7 @@
+target :'ruby1.staging', 'johnd0@ruby1.staging.biola.edu:/srv/rack/event-publisher', rails_env: 'staging'
+target :'ruby5a.prod',    'johnd0@ruby5a.prod.biola.edu:/srv/rack/event-publisher',    rails_env: 'production'
+target :'ruby5b.prod',    'johnd0@ruby5b.prod.biola.edu:/srv/rack/event-publisher',    rails_env: 'production'
+
+env_scripts '/etc/event'
+
+rake :post_deploy, 'RAILS_RELATIVE_URL_ROOT=/events'

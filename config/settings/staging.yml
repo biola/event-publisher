@@ -1,0 +1,11 @@
+elasticsearch:
+  host: http://elastic1.staging.biola.edu:9200
+  index_name: directory
+
+
+app:
+  name: Event Publisher
+  scheme: https
+  host: wcms.staging.biola.edu
+  relative_url_root: /events
+  full_url: http://wcms.staging.biola.edu/events

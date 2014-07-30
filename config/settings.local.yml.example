@@ -1,0 +1,7 @@
+trogdir:
+  scheme: 'https'
+  host: 'trogdir-api.dev'
+  script_name: nil
+  version: 'v1'
+  access_id: '*********************'
+  secret_key: '***************************************'
