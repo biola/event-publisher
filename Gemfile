@@ -16,7 +16,7 @@ end
 gem 'biola_deploy'
 gem 'biola_frontend_toolkit'
 gem 'blazing'
-gem 'buweb_content_models', '~> 0.18.0'
+gem 'buweb_content_models', '~> 0.22.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari-bootstrap'
