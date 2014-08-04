@@ -1,8 +1,87 @@
 /*
  *= require biola-frontend-toolkit
- *= require jquery.ui.all
+ *= require jquery-ui
  *= require bootstrap-tagsinput
  *= require redactor
  *= require_tree ./resources
  *= require_self
  */
+@import 'settings';
+
+html, body { min-height: 100%; }
+body { background-color: #F4EEE5; }
+#header { }  // Should use shared biola header.css
+
+#body { padding-bottom: 40px;
+  .page-header { margin: 0px; padding-bottom: 15px;
+    h1 { margin: 0;}
+  }
+  .container.page { margin: 20px auto; }
+  .white-shadowed-panel { background: white; border-bottom: 1px solid #ddd; padding: 15px; border-radius: 4px; box-shadow: -1px -1px 6px -3px rgba(0,0,0,.5);
+    &.no-pad { padding: 0px; }
+    .page-header { margin-top: 0px; padding-bottom: 15px;
+      h1, h2, h3 { @include baskerville; margin: 0; }
+    }
+
+    form {
+      .form-section { padding: 20px; }
+      .form-footer { padding: 10px; background-color: #fafafa; border-top: 1px solid #ddd; border-radius: 0 0 5px 5px; }
+      h1, h2, h3 { @include baskerville; }
+      h2 { margin: 0; padding: 20px; border-bottom: 1px solid #ddd; }
+      h3 { text-align: center; padding: 5px; border: 1px dotted #ccc; border-width: 1px 0; background-color: #fafafa; margin: 0; }
+    }
+
+    .tab-content {
+      .tab-section { padding: 20px; }
+      .tab-footer { padding: 10px; background-color: #fafafa; border-top: 1px solid #ddd; border-radius: 0 0 5px 5px; }
+      h1, h2, h3 { @include baskerville; }
+      h2 { margin: 0; padding: 20px; border-bottom: 1px solid #ddd; }
+      h3 { text-align: center; padding: 5px; border: 1px dotted #ccc; border-width: 1px 0; background-color: #CECECE; margin: 0; }
+    }
+
+    table.dl {
+      th, td { padding: 8px 5px; vertical-align: top; }
+      th { text-align: right; min-width: 140px; padding-right: 10px; }
+
+      @media (max-width: 500px) {
+        th { display: block; text-align: left; padding-bottom: 0; }
+        td { display: block; padding-top: 0; width: 100%; }
+      }
+    }
+  }
+
+  .form-footer{
+    span.published {
+      margin-right: 25px;
+      #check_box {
+        font-size: x-large;
+        margin: -2px;
+      }
+      #check_box_label {
+        margin-bottom: 0;
+        margin-left: 6px;
+        font-weight: normal;
+      }
+    }
+
+  }
+  .pad-right { padding-right: 5px; }
+}
+
+.footer { border-top: 1px solid #ddd; margin: 20px 0 0; padding: 20px; text-align: center; color: #888; }
+
+#wrapperBiolaSubHeader { background: white; }
+
+#biolaSubHeader { border-bottom: 1px solid #ddd; overflow-x: auto; }
+#biolaSubHeader .overflow_wrapper { padding: 20px 0; }
+#biolaSubHeader .nav-main { font-size: 1.35em; font-weight: bold; clear: left;  display: block; list-style: none; margin: 0; padding: 0; font-family: 'proxima-nova',Helvetica,Arial,sans-serif; white-space: nowrap; }
+#biolaSubHeader .nav-main li { display: inline-block; position: relative; margin-top: 4px; margin-left: 1.3em; }
+#biolaSubHeader .nav-main li:first-child { margin-left: 0; }
+#biolaSubHeader .nav-main li:last-child { margin-right: 1.3em }
+#biolaSubHeader .nav-main li a { color: #3E4A66; border: 0 solid #3E4A66; text-decoration: none; }
+#biolaSubHeader .nav-main li.active > a { border-bottom-width: 2px; }
+
+#biolaSubHeader.left-shadow { background: linear-gradient(to right, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 12%,rgba(0,0,0,0) 100%); }
+#biolaSubHeader.right-shadow { background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,0.1) 100%); }
+#biolaSubHeader.left-shadow.right-shadow { background: linear-gradient(to right, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 12%,rgba(0,0,0,0) 90%,rgba(0,0,0,0.1) 100%); }
+

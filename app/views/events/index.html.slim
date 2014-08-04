@@ -1,0 +1,20 @@
+.container.page
+  .row
+    .col-md-12
+      .white-shadowed-panel
+        .page-header
+          .pull-right
+            = form_tag events_path, method: :get do
+              = text_field_tag 'q', params[:q], class: 'form-control', placeholder: 'Search', tabindex: '1'
+          .pull-right.pad-right
+            = link_to 'New Event', new_event_path, class: 'btn btn-default'
+
+          h2 events
+
+        - if @events.empty?
+          .alert.alert-warning
+            = fa_icon 'warning', text: "No events were found"
+        - else
+          = render 'events'
+
+          .text-center = paginate @events

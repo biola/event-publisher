@@ -1,0 +1,17 @@
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th
+        th Title
+        th Location
+        th Occurrences
+        th Sponsor
+    tbody
+      - @events.each do |event|
+        tr
+          td
+          td = link_to event.title, event
+          td = event.location
+          td = event.occurrences
+          td = event.sponsor

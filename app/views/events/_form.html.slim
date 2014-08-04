@@ -1,0 +1,91 @@
+= form_for @event do |f|
+  - if @event.new_record?
+    h2 = new_or_edit_action @event
+
+  .row.form-section
+    .col-md-6
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+
+      .form-group
+        = f.label :subtitle
+        = f.text_field :subtitle, class: 'form-control'
+
+      .form-group
+        = f.label :slug
+        .pull-right.text-muted = '(Auto Generated if Blank)'
+        = f.text_field :slug, class: 'form-control'
+
+      .form-group
+        = f.label :summary
+        = f.text_area :summary, class: 'form-control', id: 'event_summary', rows: 4
+
+      .form-group
+        = f.label :teaser
+        .pull-right.text-muted = '(100 Character Max)'
+        = f.text_field :teaser, class: 'form-control', maxlength: 100
+
+      .form-group
+        = f.label :image
+        = f.text_field :image, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :location
+        = f.text_field :location, class: 'form-control'
+
+      .form-group
+        = f.label :occurrences
+        = f.text_field :occurrences, class: 'form-control', rows: 3
+
+      .form-group
+        = f.label :sponsor
+        = f.text_field :sponsor, class: 'form-control'
+
+      .form-group
+        = f.label :sponsor_site
+        = f.text_field :sponsor_site, class: 'form-control'
+
+      .form-group
+        = f.label :audience
+        = f.text_field :audience, class: 'form-control'
+
+      .form-group
+        = f.label :map_url
+        = f.text_field :map_url, class: 'form-control'
+
+      .form-group
+        = f.label :admission_info
+        = f.text_field :admission_info, class: 'form-control'
+
+      .form-group
+        = f.label :registration_info
+        = f.text_field :registration_info, class: 'form-control'
+
+  h3 Contact Information
+  .row.form-section
+    .col-md-4
+      .form-group
+        = f.label :contact_name
+        = f.text_field :contact_name, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :contact_email
+        = f.text_field :contact_email, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :contact_phone
+        = f.text_field :contact_phone, class: 'form-control'
+
+  .form-footer
+    .pull-right
+      - if current_user.admin?
+        span.published
+          = f.label 'Published?', id: 'check_box_label', title: 'Publish Account?'
+          '
+          = f.check_box :published, class: 'check_box', title: "Publish account?", id: 'check_box'
+
+      = f.submit 'Save', class: 'btn btn-biola'
+      = link_to "Cancel", :back, class: 'btn btn-link'
+    .clearfix

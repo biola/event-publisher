@@ -26,9 +26,9 @@ exceptions:
   mail_to:
   - appdev@biola.edu
 
-# elasticsearch:
-#   host:  # set in environment settings, leave nil for development
-#   index_name:
+elasticsearch:
+  host:  # set in environment settings, leave nil for development
+  index_name:
 
 trogdir:
   scheme: 'https'

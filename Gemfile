@@ -40,6 +40,7 @@ end
 group :development, :test do
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
+  gem 'launchy'
   gem 'mongoid-rspec', github: 'biola/mongoid-rspec'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0.1'
@@ -52,4 +53,8 @@ end
 
 group :production do
   gem 'exception_notification'
+end
+
+group :test do
+  gem 'capybara'
 end

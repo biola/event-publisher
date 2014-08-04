@@ -1,0 +1,23 @@
+- disabled = false if local_assigns[:disabled].nil?
+
+= form_for [@parent, @activity_log] do |f|
+  .modal-header
+    button.close type="button" data-dismiss="modal" aria-hidden="true"  &times;
+    h4.modal-title Add an Action
+  .modal-body
+    .form-section
+      .form-group
+        = f.label :action
+        = f.select :action_performed, ActivityLog::NON_CRUD_ACTIONABLE_ACTIONS.map {|type| [type.to_s.humanize.titleize, type] }, { include_blank: true }, class: 'form-control', disabled: disabled
+
+      .form-group
+        = f.label :message
+        .pull-right.text-muted = '(100 Character Max)'
+        = f.text_area :message, class: 'form-control', disabled: disabled, maxlength: 100
+
+  .modal-footer
+    button.btn.btn-default type="button" data-dismiss="modal" Cancel
+    = f.submit '+ Add Action', class: 'btn btn-primary'
+    / - if params[:action] == 'new'
+    / - elsif params[:action] == 'edit'
+    /   = f.submit 'Save', class: 'btn btn-primary', disabled: disabled

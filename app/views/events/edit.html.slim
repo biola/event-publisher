@@ -1,0 +1,31 @@
+.container.page
+  .page-header
+    h1
+      = @event
+      '
+      small
+        - if @event.published
+          span.label.label-success.text-top Published
+        - else
+          span.label.label-warning.text-top Un-Published
+
+  ul.nav.nav-tabs.responsive#editTabNav
+    li.active = link_to 'Event', '#event', 'data-toggle' => 'tab'
+    li = link_to 'Admin', '#activity_logs', 'data-toggle' => 'tab'
+
+  .white-shadowed-panel.no-pad
+    .tab-content.responsive
+      .tab-pane.active#event
+        = render 'form'
+
+      .tab-pane#permissions
+        = render 'shared/permissions_tab', obj: @event
+
+      .tab-pane#activity_logs
+        = render 'shared/activity_logs_tab', obj: @event
+        .tab-footer
+          button.btn.btn-default.pull-right data-toggle="modal" data-target="#activity-logs-modal" + new action
+          .clearfix
+          .modal.fade#activity-logs-modal data-remote=new_event_activity_log_path(@event) tabindex="-1" role="dialog" aria-labelledby="activityLog" aria-hidden="true"
+            .modal-dialog
+              .modal-content

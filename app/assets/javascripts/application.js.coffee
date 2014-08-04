@@ -11,9 +11,28 @@
 # GO AFTER THE REQUIRES BELOW.
 #
 #= require jquery
-#= require jquery.ui.all
+#= require jquery-ui
 #= require biola-frontend-toolkit
 #= require responsive-tabs
 #= require redactor
 #= require bootstrap-tagsinput
 #= require_tree .
+
+$("#editTabNav a").click (e) ->
+  window.location.replace @hash
+  e.preventDefault()
+  $(this).tab "show"
+  return
+
+# on load of the page: switch to the currently selected tab
+hash = window.location.hash
+$("#editTabNav a[href=\"" + hash + "\"]").tab "show"
+
+# on forward or back button: switch to the currently selected tab
+$(window).on "popstate", (event) ->
+  hash = window.location.hash
+  $("#editTabNav a[href=\"" + hash + "\"]").tab "show"
+  return
+
+# See https://github.com/openam/bootstrap-responsive-tabs for information on using responsive-tabs.js
+fakewaffle.responsiveTabs ["xs"]

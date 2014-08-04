@@ -1,0 +1,42 @@
+.tab-section
+  - if !policy(obj).edit?
+    p You do not have permission to access this tab
+  - else
+    .activity_logs_history
+      .table-responsive
+        table.table.table-striped
+          thead
+          tr
+            th
+            th Action
+            th User
+            th User Email
+            th Occurance
+            / th Reviewer
+            th Message
+          tbody
+            - ActivityLog.for_associated(obj).desc(:created_at).each do |activity_log|
+              tr
+                / Modal Window
+                .modal.fade tabindex="-1" role="dialog" aria-labelledby="activityLog" aria-hidden="true" id="activity-log-edit-#{activity_log.id.to_s}"
+                  .modal-dialog
+                    .modal-content
+                td.activity_log
+                  .dropdown
+                    .dropdown-toggle id="dropdownMenu1" data-toggle="dropdown"
+                      = link_to fa_icon('cog')
+                    ul.dropdown-menu role="menu" aria-labelledby="dropdownMenu1"
+                      li
+                        a href=send("edit_#{obj.class.to_s.downcase}_activity_log_path", obj.id, activity_log.id) data-toggle="modal" data-target="#activity-log-edit-#{activity_log.id.to_s}" Edit Action
+                td = activity_log.action_performed.try(:humanize)
+                td = activity_log.acting_user
+                td = activity_log.acting_user_email
+                td = activity_log.created_at.to_s(:long_ordinal)
+                / td
+                /   -if activity_log.reviewer_ids.present?
+                /     = activity_log.reviewer_ids.each{|id| Person.find(id).name }.join(', ')
+                td
+                  - if activity_log.message.present?
+                    = activity_log.message.try(:humanize)
+                  - elsif activity_log.changes_made.present?
+                    = activity_log.changes_made.join(' ')
