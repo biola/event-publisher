@@ -1,4 +1,4 @@
-event-publisher
+DEPRICATED: This project is no longer in use. Run away!
 ======================
 
 Biola's event publisher
