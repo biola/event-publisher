@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.6' #'3.2.17'
+gem 'rails', '4.1.7'
 
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'font-awesome-rails'
-gem 'sass-rails',   '~> 4.0.3' #'~> 3.2.3'
-gem 'coffee-rails', '~> 4.0.1' #'~> 3.2.1'
+gem 'sass-rails',   '~> 4.0.4'
+gem 'coffee-rails', '~> 4.0.1'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
